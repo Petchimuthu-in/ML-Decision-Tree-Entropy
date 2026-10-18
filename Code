@@ -1,0 +1,14 @@
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("student_exam_results.csv")
+print(df)
+
+probability = df["Result"].value_counts(normalize=True)
+
+print("Class Probabilities:")
+print(probability)
+
+entropy = -sum(probability * np.log2(probability))
+
+print("Entropy:", round(entropy, 2))
